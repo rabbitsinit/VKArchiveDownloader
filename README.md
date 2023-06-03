@@ -14,10 +14,12 @@ pip install vk_api
 ```bash
 pip install pyTelegramBotAPI
 ```
-### 2. Get the access token VK
-You can do this on [this website](https://vkhost.github.io/)
-### 3. Get the Telegram bot token
-You can get token from [BotFather](https://telegram.me/BotFather)
-### 4. Insert your tokens and the id of your Telegram profile into the code 
-The identifier of your Telegram profile should consist only of numbers
-### 5. Create the /data/chats/ in the project folder
+### 2. Get the access tokens and other important data
+Get VK User token [here](https://vkhost.github.io/)
+
+Get Telegram bot token from [BotFather](https://telegram.me/BotFather)
+
+Get Telegram user id [here](https://t.me/userinfobot)
+### 3. Insert tokens
+Insert your tokens and the id of your Telegram profile into tokens.py file
+### 4. Create the /data/chats/ in the project folder

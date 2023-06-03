@@ -1,4 +1,4 @@
-import vk_api
+import vk_api, tokens
 
 logs = False
 
@@ -6,8 +6,7 @@ def debug(a):
 	if logs:
 		print(str(a))
 
-# Replace with your token from https://vkhost.github.io/
-TOKEN = 'VK USER TOKEN'
+TOKEN = tokens.vk
 
 # Log in using the token
 vk_session = vk_api.VkApi(token=TOKEN)

@@ -1,3 +1,4 @@
+![cover](https://github.com/RabbitsInIT/VKArchiveDownloader/assets/72883689/a8ab9bc0-7f15-4156-a581-1206f690f023)
 # VKArchiveDownloader
 ### Backup chats
 This program allows you to download the entire message history in all conversations and with all users in separate files. Each chat is saved in a separate [chat id].txt file

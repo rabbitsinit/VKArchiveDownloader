@@ -1,6 +1,6 @@
 import vk_api
 
-logs = True
+logs = False
 
 def debug(a):
 	if logs:
@@ -58,38 +58,41 @@ while conversationsRemaining > 0:
 								audioName = i['audio']['title']
 								audioArtist = i['audio']['artist']
 								audioURL = i['audio']['url']
-								f.write(str('\nsender: https://vk.com/id' + str(from_id) +
-										 '\n  type: audio' +
-										 '\n  content: ' +
-										 '\n    name: ' + audioName +
-										 '\n    artist: ' + audioArtist +
-										 '\n    url: ' + audioURL + '\n'))
+								f.write(str('\nmessage:' +
+											'\n sender: https://vk.com/id' + str(from_id) +
+										    '\n type: audio' +
+										    '\n content: ' +
+										    '\n  name: ' + audioName +
+										    '\n  artist: ' + audioArtist +
+										    '\n  url: ' + audioURL))
 							elif i['type'] == 'video':
 								videoTitle = i['video']['title']
 								try:
 									videoURL = i['video']['player']
 								except:
 									videoURL = 'Unreachable video'
-								f.write(str('\nsender: https://vk.com/id' + str(from_id) +
-										    '\n  type: video' +
-										    '\n  content: ' +
-										    '\n    title: ' + videoTitle +
-										    '\n    url: ' + videoURL))
+								f.write(str('\nmessage:' +
+											'\n sender: https://vk.com/id' + str(from_id) +
+										    '\n type: video' +
+										    '\n content: ' +
+										    '\n  title: ' + videoTitle +
+										    '\n  url: ' + videoURL))
 							elif i['type'] == 'photo':
 								photoDescription = i['photo']['text']
-								photoSizes = i['photo']['sizes']
-								photoUrl = i['photo']['sizes'][len(photoSizes) - 1]['url']
-								f.write(str('\nsender: https://vk.com/id' + str(from_id) +
-											'\n  type: photo' +
-											'\n  content: ' +
-											'\n    description: ' + photoDescription +
-											'\n    url: ' + photoUrl))
+								photoMaxSizeUrl = i['photo']['sizes'][len(i['photo']['sizes']) - 1]['url']
+								f.write(str('\nmessage:' +
+											'\n sender: https://vk.com/id' + str(from_id) +
+											'\n type: photo' +
+											'\n content: ' +
+											'\n  description: ' + photoDescription +
+											'\n  url: ' + photoMaxSizeUrl))
 							debug("media written")
 							residcounter = False
 					else:
-						f.write(str('\nsender: https://vk.com/id' + str(from_id) +
-									'\n  content: ' + str(i['text']) +
-									'\n'))
+						f.write(str('\nmessage:' +
+									'\n sender: https://vk.com/id' + str(from_id) +
+									'\n type: text' +
+									'\n content: ' + str(i['text'])))
 						debug("text written")
 						residcounter = False
 				if (resid > 0) and (not residcounter):

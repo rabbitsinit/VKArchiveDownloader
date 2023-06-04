@@ -20,6 +20,6 @@ Get VK User token [here](https://vkhost.github.io/)
 Get Telegram bot token from [BotFather](https://telegram.me/BotFather)
 
 Get Telegram user id [here](https://t.me/userinfobot)
-### 3. Insert tokens
-Insert your tokens and the id of your Telegram profile into tokens.py file
+### 3. Configure config.py
+Insert your tokens and change variables values if you need
 ### 4. Create the /data/chats/ in the project folder

@@ -1,19 +1,17 @@
 import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 import telebot
-import tokens
+import config
 
 # Authenticate with VK API
-# You can get token at https://vkhost.github.io/
-vk_session = vk_api.VkApi(token=tokens.vk)
+vk_session = vk_api.VkApi(token=config.vk_token)
 vk = vk_session.get_api()
 
 # Authenticate with Telegram API
-# You can get token from BotFather
-bot = telebot.TeleBot(tokens.tgbot)
+bot = telebot.TeleBot(config.tgbot_token)
 
-# Get the Telegram user ID of the user you want to send messages to
-user_id = tokens.tguser_id
+# Set the Telegram user ID of the user you want to send messages to
+user_id = config.tguser_id
 
 # Create an instance of the VkLongPoll class
 longpoll = VkLongPoll(vk_session)

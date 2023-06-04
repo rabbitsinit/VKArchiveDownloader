@@ -1,18 +1,12 @@
-import vk_api, tokens
-
-LOGS = False
+import vk_api, config
 
 def debug(a):
-	if LOGS:
+	if config.debug:
 		print(str(a))
 
-TOKEN = tokens.vk
-
-MESSAGES = True
-PHOTOS = True
 
 # Log in using the token
-vk_session = vk_api.VkApi(token=TOKEN)
+vk_session = vk_api.VkApi(token=config.vk_token)
 debug('vk_session set')
 
 # Get the API object
@@ -112,9 +106,9 @@ def getPhotos():
 	countOfPhotos = photos['count']
 	offset = 0
 	while offset<countOfPhotos:
-		photos = vk.photos.getAll(count=countOfPhotos, offset= offset)
+		photos = vk.photos.getAll(count=countOfPhotos, offset=offset)
 		offset+=200
-		debug('Downloading ' + str(countOfPhotos) +' photos')
+		debug('Fetching ' + str(countOfPhotos) +' photos')
 		filename = f"data/photos.txt"
 		with open(filename, 'w', encoding='utf-8') as f:
 			for i in photos['items']:
@@ -123,7 +117,8 @@ def getPhotos():
 				f.write('url: ' + sizes[0]['url'] + '\n\n')
 				debug('Type of photo size: ' + sizes[0]['type'])
 
-if MESSAGES:
+
+if config.messages:
 	getMessages()
-if PHOTOS:
+if config.photos:
 	getPhotos()

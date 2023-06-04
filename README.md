@@ -23,3 +23,6 @@ Get Telegram user id [here](https://t.me/userinfobot)
 ### 3. Insert tokens
 Insert your tokens and the id of your Telegram profile into tokens.py file
 ### 4. Create the /data/chats/ in the project folder
+### 5. Choose which data you want to get. 
+If you want to receive messages, then the MESSAGES in the file must be True. It's the same with photos. 
+By default, all variables are True

@@ -7,4 +7,3 @@ tguser_id = 777  # Telegram receiver user id (get it on https://t.me/userinfobot
 debug = False    # Here you can set True if you want logs to show
 chats = False  # Here you can set True if you want to fetch chats
 photos = False    # Here you can set True if you want to fetch photos
-music = True     # Here you can set True if you want to fetch music

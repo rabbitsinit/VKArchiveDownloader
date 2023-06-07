@@ -1,21 +1,24 @@
+# Import requirements and checking its existence
 try:
     import vk_api, config
 except:
     print('some of required modules not found. run "pip install -r requirements.txt"')
 
+
+# Simple debug helper
 def debug(a):
 	if config.debug:
 		print(str(a))
 
 
-# Log in using the token
+# Set up API things
 vk_session = vk_api.VkApi(token=config.vk_token)
 debug('vk_session set')
-
-# Get the API object
 vk = vk_session.get_api()
 debug('vk set')
 
+
+# Conversations fetcher
 def getChats():
 	# Get all conversations for the user
 	amountOfConversations = vk.messages.getConversations(count=200)['count']
@@ -104,6 +107,8 @@ def getChats():
 						debug("conversation saved")
 						break
 
+
+# Photos fetcher
 def getPhotos():
 	photos = vk.photos.getAll()
 	countOfPhotos = photos['count']
@@ -120,9 +125,8 @@ def getPhotos():
 				f.write('url: ' + sizes[0]['url'] + '\n\n')
 				debug('Type of photo size: ' + sizes[0]['type'])
 
-def getMusic():
-	pass
 
+# Run selected things
 if config.chats:
 	getChats()
 if config.photos:

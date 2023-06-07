@@ -1,4 +1,7 @@
-import vk_api, config
+try:
+    import vk_api, config
+except:
+    print('some of required modules not found. run "pip install -r requirements.txt"')
 
 def debug(a):
 	if config.debug:
@@ -13,7 +16,7 @@ debug('vk_session set')
 vk = vk_session.get_api()
 debug('vk set')
 
-def getMessages():
+def getChats():
 	# Get all conversations for the user
 	amountOfConversations = vk.messages.getConversations(count=200)['count']
 	conversationsRemaining = amountOfConversations
@@ -106,7 +109,7 @@ def getPhotos():
 	countOfPhotos = photos['count']
 	offset = 0
 	while offset<countOfPhotos:
-		photos = vk.photos.getAll(count=countOfPhotos, offset=offset)
+		photos = vk.photos.getAll(count=200, offset=offset)
 		offset+=200
 		debug('Fetching ' + str(countOfPhotos) +' photos')
 		filename = f"data/photos.txt"
@@ -117,8 +120,10 @@ def getPhotos():
 				f.write('url: ' + sizes[0]['url'] + '\n\n')
 				debug('Type of photo size: ' + sizes[0]['type'])
 
+def getMusic():
+	pass
 
-if config.messages:
-	getMessages()
+if config.chats:
+	getChats()
 if config.photos:
 	getPhotos()

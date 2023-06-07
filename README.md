@@ -5,14 +5,9 @@ This program allows you to download the entire message history in all conversati
 ### Forward new to Telegram
 This program forwards all new incoming and outgoing messages to Telegram.
 ## Getting started
-### 1. Install the following pip packages:
-- **vk_api**
+### 1. Install required pip packages:
 ```bash
-pip install vk_api
-```
-- **telebot** (to forward messages in telegram)
-```bash
-pip install pyTelegramBotAPI
+pip install -r requirements.txt
 ```
 ### 2. Get the access tokens and other important data
 Get VK User token [here](https://vkhost.github.io/)

@@ -1,7 +1,10 @@
-import vk_api
-from vk_api.longpoll import VkLongPoll, VkEventType
-import telebot
-import config
+try:
+    import config
+    import vk_api
+    from vk_api.longpoll import VkLongPoll, VkEventType
+    import telebot
+except:
+    print('some of required modules not found. run "pip install -r requirements.txt"')
 
 # Authenticate with VK API
 vk_session = vk_api.VkApi(token=config.vk_token)
